@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../lib/api";
 import { useAuth } from "../context/AuthContext";
+import styles from '../styles/login.module.scss';
+import formStyles from '../styles/form.module.scss';
+import Button from "../components/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -30,22 +33,25 @@ export default function Login() {
   }
 
   return (
-    <div className="login-page" style={{ maxWidth: 400, margin: "50px auto" }}>
+    <div className={styles.loginPage}>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "1rem" }}>
-          <label>Email</label>
+      <form className={formStyles.formContainer} onSubmit={handleSubmit}>
+        <div className={formStyles.formField}>
+          <label
+            className={formStyles.formLabel}
+          >Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ width: "100%" }}
           />
         </div>
 
-        <div style={{ marginBottom: "1rem" }}>
-          <label>Password</label>
+        <div className={formStyles.formField}>
+          <label
+            className={formStyles.formLabel}
+          >Password</label>
           <input
             type="password"
             value={password}
@@ -57,9 +63,11 @@ export default function Login() {
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <button type="submit" style={{ width: "100%" }}>
-          Log in
-        </button>
+        <Button
+          type="submit"
+          variant="primary"
+          size="md">Log in
+        </Button>
       </form>
     </div>
   );

@@ -2,15 +2,19 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Header from "./pages/Header";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/" element={<Dashboard />} />
-        {/* Add other protected routes here */}
-      </Route>
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Dashboard />} />
+          {/* Add other protected routes here */}
+        </Route>
+      </Routes>
+    </>
   );
 }
