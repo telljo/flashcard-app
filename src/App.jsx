@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Header from "./pages/Header";
+import DeckDetails from "./pages/DeckDetails";
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Dashboard />} />
-          {/* Add other protected routes here */}
+          <Route path="/decks/:id" element={<DeckDetails />} />
         </Route>
       </Routes>
     </>

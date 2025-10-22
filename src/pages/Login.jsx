@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../lib/api";
+import api from "../api/api";
 import { useAuth } from "../context/AuthContext";
 import styles from '../styles/login.module.scss';
 import formStyles from '../styles/form.module.scss';
