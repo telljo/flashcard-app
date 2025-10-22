@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getDeck } from "../api/decks";
-import Deck from "./Deck";
+import { getDeck } from "../../api/decks";
+import Deck from "../Deck/Deck";
 
 export default function DeckDetails() {
   const { id } = useParams();

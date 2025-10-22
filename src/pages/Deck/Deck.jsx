@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "../styles/deck.module.scss";
+import styles from "./_deck.module.scss";
 
 function Deck({ deck, onClick }) {
   return (

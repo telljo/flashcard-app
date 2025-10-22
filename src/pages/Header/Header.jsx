@@ -1,8 +1,8 @@
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/header.module.scss";
-import ThemeSwitcher from "../components/ThemeSwitcher/ThemeSwitcher";
-import Button from "../components/Button";
+import styles from "./_header.module.scss";
+import ThemeSwitcher from "../../components/ThemeSwitcher/ThemeSwitcher";
+import Button from "../../components/Button";
 
 export default function Header() {
   const { user, logout } = useAuth();

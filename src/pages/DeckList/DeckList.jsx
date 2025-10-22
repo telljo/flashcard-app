@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getDecks } from "../api/decks";
-import Deck from "./Deck";
+import { getDecks } from "../../api/decks";
+import Deck from "../Deck/Deck";
 import { useNavigate } from "react-router-dom";
 
 function DeckList() {

@@ -1,4 +1,4 @@
-import DeckList from "./DeckList";
+import DeckList from "../DeckList/DeckList";
 
 export default function Dashboard() {
 

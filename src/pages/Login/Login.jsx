@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../api/api";
-import { useAuth } from "../context/AuthContext";
-import styles from '../styles/login.module.scss';
-import formStyles from '../styles/form.module.scss';
-import Button from "../components/Button";
+import api from "../../api/api";
+import { useAuth } from "../../context/AuthContext";
+import styles from './_login.module.scss';
+import formStyles from '../../styles/_form.module.scss';
+import Button from "../../components/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");

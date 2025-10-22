@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login/Login";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Header from "./pages/Header";
-import DeckDetails from "./pages/DeckDetails";
+import Header from "./pages/Header/Header";
+import DeckDetails from "./pages/DeckDetails/DeckDetails";
 
 export default function App() {
   return (
