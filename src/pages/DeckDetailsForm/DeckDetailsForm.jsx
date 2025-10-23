@@ -54,9 +54,12 @@ export default function DeckDetailsForm() {
 
       <form className={formStyles.formContainer} onSubmit={handleSubmit}>
         <div className={formStyles.formField}>
-          <label
-            className={formStyles.formLabel}
-          >Name</label>
+          <div className="flexRow">
+            <label
+              className={formStyles.formLabel}
+            >Name:</label>
+            <p style={{color: "red", margin: "0"}}>*</p>
+          </div>
           <input
             value={updatedName}
             onChange={(e) => setUpdatedName(e.target.value)}
@@ -65,12 +68,17 @@ export default function DeckDetailsForm() {
         </div>
 
         <div className={formStyles.formField}>
-          <label
-            className={formStyles.formLabel}
-          >Description</label>
+          <div className="flexRow">
+            <label
+              className={formStyles.formLabel}
+            >Description:</label>
+            <p style={{color: "red", margin: "0"}}>*</p>
+          </div>
+
           <input
             value={updatedDescription}
             onChange={(e) => setUpdatedDescription(e.target.value)}
+            required
           />
         </div>
 

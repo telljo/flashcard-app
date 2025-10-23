@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
@@ -21,8 +21,9 @@ export default function Login() {
     const message = searchParams.get("message");
     if (message) {
       toast.error(message);
+      navigate(location.pathname, { replace: true });
     }
-  }, [searchParams]);
+  }, [searchParams, navigate, location.pathname]);
 
   async function handleSubmit(e) {
     e.preventDefault();

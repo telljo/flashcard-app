@@ -130,3 +130,10 @@ a:hover {
     filter: brightness(1.1);
   }
 }
+
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+}
