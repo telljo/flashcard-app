@@ -1,17 +1,28 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
 import styles from './_login.module.scss';
 import formStyles from '../../styles/_form.module.scss';
 import Button from "../../components/Button";
+import {toast } from "react-hot-toast";
+import { useSearchParams } from "react-router-dom";
 
 export default function Login() {
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { login } = useAuth();
+
+  useEffect(() => {
+    const message = searchParams.get("message");
+    if (message) {
+      toast.error(message);
+    }
+  }, [searchParams]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -24,10 +35,9 @@ export default function Login() {
       });
       const { token, user } = response.data;
 
-      login(token, user); // ✅ store both token and user
+      login(token, user);
       navigate("/");
     } catch (err) {
-      console.error(err);
       setError("Invalid email or password");
     }
   }

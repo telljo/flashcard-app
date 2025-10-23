@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDeck } from "../../api/decks";
-import Deck from "../Deck/Deck";
+import styles from "./_deck_details.module.scss"
+import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function DeckDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [deck, setDeck] = useState(null);
 
@@ -16,8 +19,17 @@ export default function DeckDetails() {
   }
 
   return (
-    <div style={{ maxWidth: "600px", textAlign: "center" }}>
-      <Deck key={deck.id} deck={deck} />
-    </div>
+    <>
+      <div className={styles.deckDetails}>
+        <h2>{deck.name}</h2>
+        <p>{deck.description || "No description"}</p>
+
+        <Button
+          onClick={() => navigate("/decks/" + deck.id + "/edit")}
+          variant="primary"
+          size="md">Edit deck
+        </Button>
+      </div>
+    </>
   );
 }

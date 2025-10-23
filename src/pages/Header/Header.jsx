@@ -18,6 +18,7 @@ export default function Header() {
       <div className={styles.header}>
         {user && (
           <>
+            <a onClick={() => navigate('/')}>Dashboard</a>
             <p>
               Logged in as: <strong>{user?.email_address}</strong>
             </p>
