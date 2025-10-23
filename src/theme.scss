@@ -63,6 +63,7 @@ a:hover {
   --color-border: #ddd;
   --color-dark: #555;
   --color-white: #fff;
+  --color-danger: #dc3545;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -131,9 +132,21 @@ a:hover {
   }
 }
 
-
-.flexRow {
+.flexRow-s {
   display: flex;
   flex-direction: row;
   gap: 0.25em;
+}
+
+.flexRow-m {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75em;
+  align-items: center;
+}
+
+.flexRow-l {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
 }

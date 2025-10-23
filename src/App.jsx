@@ -16,6 +16,7 @@ export default function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/decks/:id" element={<DeckDetails />} />
+          <Route path="/decks/new" element={<DeckDetailsForm />} />
           <Route path="/decks/:id/edit" element={<DeckDetailsForm />} />
         </Route>
       </Routes>

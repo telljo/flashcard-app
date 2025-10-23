@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getDecks } from "../../api/decks";
 import Deck from "../Deck/Deck";
 import { useNavigate } from "react-router-dom";
+import styles from "./_deck_list.module.scss"
+import { CirclePlus } from "lucide-react";
 
 function DeckList() {
   const navigate = useNavigate();
@@ -16,15 +18,18 @@ function DeckList() {
 
   return (
     <div
-      style={{
-        display: "grid",
-        gap: "1rem",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-      }}
+      className={styles.deckList}
     >
       {decks.map((deck) => (
         <Deck key={deck.id} deck={deck} onClick={handleDeckClick} />
       ))}
+      <button
+        onClick={() => navigate("/decks/new")}
+        className={styles.newDeckButton}
+      >
+        <CirclePlus size={20} />
+        Create Deck
+      </button>
     </div>
   );
 }

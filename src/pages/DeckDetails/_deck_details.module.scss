@@ -1,8 +1,20 @@
 .deckDetails {
   margin: auto;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
 
   p {
     margin: 0.25rem 0;
     color: #555;
+  }
+
+  .deckHeader {
+    width: 100%;
+    gap: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
   }
 }

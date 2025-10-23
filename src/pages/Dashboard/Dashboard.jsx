@@ -6,7 +6,7 @@ export default function Dashboard() {
     <div style={{ maxWidth: 600, margin: "50px auto", textAlign: "center" }}>
       <h1>Welcome to your Dashboard 👋</h1>
 
-      <h2>Your decks:</h2>
+      <h2>Your Decks:</h2>
       <DeckList />
     </div>
   );
