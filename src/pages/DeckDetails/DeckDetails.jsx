@@ -9,13 +9,13 @@ import CardList from "../CardList/CardList";
 
 export default function DeckDetails() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { deckId } = useParams();
   const [deck, setDeck] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
-    getDeck(id).then((res) => setDeck(res.data));
-  }, [id]);
+    getDeck(deckId).then((res) => setDeck(res.data));
+  }, [deckId]);
 
   if (!deck) {
     return <p>Loading...</p>;
@@ -31,7 +31,7 @@ export default function DeckDetails() {
 
           <div className={"flexRow-m"}>
             <Button
-              onClick={() => navigate("/decks/" + deck.id + "/edit")}
+              onClick={() => navigate("/decks/" + deck.deckId + "/edit")}
               variant="primary"
               size="md">Edit deck
             </Button>
@@ -49,7 +49,7 @@ export default function DeckDetails() {
               title="Delete Deck?"
               message={`Are you sure you want to permanently delete "${deck.name}"?`}
               onCancel={() => setShowConfirm(false)}
-              onConfirm={() => deleteDeck(deck.id).then(() => navigate("/"))}
+              onConfirm={() => deleteDeck(deck.deckId).then(() => navigate("/"))}
             />
           </div>
         </div>

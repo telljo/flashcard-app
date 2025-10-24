@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getDeck, updateDeck, createDeck } from "../../api/decks"; // <-- add createDeck
+import { getDeck, updateDeck, createDeck } from "../../api/decks";
 import styles from "./_deck_details_form.module.scss";
 import Button from "../../components/Button";
 import formStyles from "../../styles/_form.module.scss";
 
 export default function DeckDetailsForm() {
   const navigate = useNavigate();
-  const { id } = useParams();
-  const isEditMode = Boolean(id);
+  const { deckId } = useParams();
+  const isEditMode = Boolean(deckId);
 
   const [deck, setDeck] = useState(null);
   const [name, setName] = useState("");
@@ -17,7 +17,7 @@ export default function DeckDetailsForm() {
 
   useEffect(() => {
     if (isEditMode) {
-      getDeck(id).then((res) => {
+      getDeck(deckId).then((res) => {
         setDeck(res.data);
         setName(res.data.name);
         setDescription(res.data.description);
@@ -25,7 +25,7 @@ export default function DeckDetailsForm() {
     } else {
       setDeck({});
     }
-  }, [id, isEditMode]);
+  }, [deckId, isEditMode]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -33,10 +33,10 @@ export default function DeckDetailsForm() {
 
     try {
       if (isEditMode) {
-        const res = await updateDeck(id, { name, description });
-        navigate(`/decks/${res.data.id}`);
+        const res = await updateDeck(deckId, { name, description });
+        navigate(`/decks/${res.data.deckId}`);
       } else {
-        const res = await createDeck({ name, description });
+        await createDeck({ name, description });
         navigate("/");
       }
     } catch (err) {

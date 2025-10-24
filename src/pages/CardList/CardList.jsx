@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 function CardList({ deck }) {
   const navigate = useNavigate();
   const handleCardClick = (card) => {
-    navigate("/cards/" + card.id);
+    navigate(`/decks/${deck.id}/cards/${card.id}`);
   };
   const [cards, setCards] = useState([]);
 
@@ -25,7 +25,7 @@ function CardList({ deck }) {
         <Card key={card.id} card={card} onClick={handleCardClick} />
       ))}
       <button
-        onClick={() => navigate("/cards/new")}
+        onClick={() => navigate(`/decks/${deck.id}/cards/new`)}
         className={styles.newCardButton}
       >
         <CirclePlus size={20} />

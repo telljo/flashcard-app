@@ -39,10 +39,6 @@ api.interceptors.response.use(
       if (status === 401) {
         localStorage.removeItem("token");
         window.location.href = "/login?message=Unauthorized. Please log in again.";
-      } else if (status === 403) {
-        toast.error("You don’t have permission to perform this action.");
-      } else if (status === 404) {
-        toast.error("Resource not found.");
       } else if (status >= 500) {
         toast.error("Server error. Please try again later.");
       } else {

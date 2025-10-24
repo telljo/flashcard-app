@@ -5,6 +5,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Header from "./pages/Header/Header";
 import DeckDetails from "./pages/DeckDetails/DeckDetails";
 import DeckDetailsForm from "./pages/DeckDetailsForm/DeckDetailsForm";
+import CardDetailsForm from "./pages/CardDetailsForm/CardDetailsForm";
+import CardDetails from "./pages/CardDetails/CardDetails";
 import { Toaster } from "react-hot-toast";
 
 export default function App() {
@@ -16,9 +18,12 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/decks/:id" element={<DeckDetails />} />
             <Route path="/decks/new" element={<DeckDetailsForm />} />
-            <Route path="/decks/:id/edit" element={<DeckDetailsForm />} />
+            <Route path="/decks/:deckId" element={<DeckDetails />} />
+            <Route path="/decks/:deckId/edit" element={<DeckDetailsForm />} />
+            <Route path="/decks/:deckId/cards/new" element={<CardDetailsForm />} />
+            <Route path="/decks/:deckId/cards/:cardId" element={<CardDetails />} />
+            <Route path="/decks/:deckId/cards/:cardId/edit" element={<CardDetailsForm />} />
           </Route>
         </Routes>
       </div>

@@ -76,6 +76,7 @@ a:hover {
   --color-dark: #555;
   --color-white: #fff;
   --color-danger: #dc3545;
+  --color-glint: hsl(210, 100%, 82%);
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -96,6 +97,7 @@ a:hover {
   --color-muted: #aaa;
   --color-border: #333;
   --color-dark: #333;
+  --color-glint: hsl(210, 67%, 27%);
 }
 
 /* -------------------------------
@@ -124,6 +126,15 @@ a:hover {
 
   &:hover {
     box-shadow: var(--shadow-md);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-glint);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
