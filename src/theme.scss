@@ -51,6 +51,18 @@ a:hover {
   text-decoration: underline;
 }
 
+.margin-s {
+  margin: 0.5rem;
+}
+
+.margin-m {
+  margin: 1rem;
+}
+
+.margin-l {
+  margin: 2rem;
+}
+
 /* -------------------------------
    THEME VARIABLES
 ---------------------------------- */
@@ -96,7 +108,6 @@ a:hover {
   justify-content: center;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 /* -------------------------------

@@ -5,6 +5,7 @@ import styles from "./_deck_details.module.scss"
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import ConfirmDialog from "../../components/ConfirmDialog/ConfirmDialog";
+import CardList from "../CardList/CardList";
 
 export default function DeckDetails() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function DeckDetails() {
       <div className={styles.deckDetails}>
         <div className={styles.deckHeader}>
           <div>
-            <h2 style={{marginBottom: "0.5em"}}>{deck.name}</h2>
+            <h1 style={{marginBottom: "0.5em"}}>{deck.name}</h1>
           </div>
 
           <div className={"flexRow-m"}>
@@ -54,6 +55,11 @@ export default function DeckDetails() {
         </div>
         <p>{deck.description || "No description"}</p>
 
+        <hr style={{marginBottom: "2em"}}/>
+
+        <h2 style={{marginBottom: "0.5em"}}>Cards</h2>
+
+        <CardList deck={deck}></CardList>
       </div>
     </>
   );
